@@ -4,7 +4,7 @@ namespace ResDiary_Coding_Challenge
 { 
     public class Program
     {
-        private static int[] testArray = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+        private static int[] testArray = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 
         public static void Main(string[] args)
         {
