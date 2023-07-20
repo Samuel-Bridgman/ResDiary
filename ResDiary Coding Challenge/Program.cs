@@ -10,7 +10,7 @@ namespace ResDiary_Coding_Challenge
         {
             var arrayHelper = new ArrayHelper();
 
-            var arrayOfArrays = arrayHelper.GroupArrayElements(testArray, 7);
+            var arrayOfArrays = arrayHelper.GroupArrayElements(testArray, 5);
 
             foreach (var array in arrayOfArrays)
             {
