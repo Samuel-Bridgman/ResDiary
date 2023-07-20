@@ -13,14 +13,19 @@
         {
             var inputCount = input.Count();
             int arraySize = Convert.ToInt16(Math.Ceiling((double)input.Count() / arrayOutputCount));
-            var remainedArraySize = arraySize - (arraySize * arrayOutputCount - inputCount);
+            int remainederArraySize = 0;
+            if ((arraySize * arrayOutputCount) > inputCount)
+            {
+                var remainder = inputCount - (arraySize * (arrayOutputCount - 1));
+                remainederArraySize = remainder > 0 && remainder < arraySize ? remainder : 0; 
+            }
 
             T[][] returnArray = new T[arrayOutputCount][];
 
             int currentIndex = 0;
-            for (int i = 0; i < arrayOutputCount - 1; i++)
+            for (int i = 0; i < arrayOutputCount; i++)
             {
-                if(currentIndex < inputCount) {
+                if(currentIndex < (inputCount - remainederArraySize)) {
                     returnArray[i] = Slice(input, currentIndex, arraySize);
                     currentIndex = currentIndex + arraySize;
                 }
@@ -30,8 +35,8 @@
                 }
             }
 
-            if(remainedArraySize > 0)
-                returnArray[arrayOutputCount - 1] = Slice(input, currentIndex, remainedArraySize);
+            if(remainederArraySize > 0)
+                returnArray[arrayOutputCount - 1] = Slice(input, currentIndex, remainederArraySize);
 
             return returnArray;
         }
